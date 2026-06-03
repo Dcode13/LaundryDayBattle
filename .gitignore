@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.local
+.DS_Store
+.vite/
+
+# Generated processed assets (run `npm run preprocess` to regenerate)
+public/assets/
+
+# Logs & test artifacts
+*.log
+scripts/shots/
