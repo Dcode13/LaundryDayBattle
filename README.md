@@ -93,6 +93,7 @@ Phaser game so the tests can inspect/teleport. It is not present in production b
 
 ## Notes & decisions
 
+- **Logo (`F1`)**: unlike the other art it sits on a solid **white** (not magenta) background, so it gets a flood-fill background removal (`scripts/lib/imagekit.mjs`, applied in `preprocess.mjs`). If you only have the already-processed `public/assets/F1.png` and not the source, run `node scripts/fix-logo.mjs` to strip it in place.
 - **DRY vs WET sprites**: per the brief, DRY reuses the WET art (`B2`), distinguished by the full drying meter plus a sparkle effect — no extra asset needed.
 - **Action sprites (`P*-A4`)**: these source frames bake the washing machine / folding table into the character. To avoid a doubled station on screen, the player keeps their idle/carry sprite during mini-games and feedback is shown via particles + the on-station meter.
 - **Sound**: lightweight synthesised WebAudio blips (`src/systems/Sfx.ts`) — no audio assets required.

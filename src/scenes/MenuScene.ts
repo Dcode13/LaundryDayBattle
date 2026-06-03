@@ -16,19 +16,21 @@ export class MenuScene extends Phaser.Scene {
     }
     this.add.rectangle(0, 0, W, H, 0x1a1a2e, 0.35).setOrigin(0, 0);
 
-    const logo = this.add.image(W / 2, H * 0.34, 'logo').setOrigin(0.5);
-    logo.setScale(Math.min(560 / logo.width, 1));
-    this.tweens.add({ targets: logo, y: H * 0.34 - 10, duration: 1400, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
+    const logo = this.add.image(W / 2, H * 0.31, 'logo').setOrigin(0.5);
+    logo.setScale(600 / logo.width);
+    this.tweens.add({ targets: logo, y: H * 0.31 - 12, duration: 1400, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
 
     this.add
-      .text(W / 2, H * 0.55, 'Local 2-Player  •  Wash → Dry → Fold', {
+      .text(W / 2, H * 0.58, 'Local 2-Player  •  Wash → Dry → Fold', {
         fontFamily: 'monospace',
         fontSize: '20px',
         color: '#ffffff',
+        stroke: '#000000',
+        strokeThickness: 3,
       })
       .setOrigin(0.5);
 
-    const play = this.add.image(W / 2, H * 0.7, 'buttons', 0).setOrigin(0.5).setInteractive({ useHandCursor: true });
+    const play = this.add.image(W / 2, H * 0.71, 'buttons', 0).setOrigin(0.5).setInteractive({ useHandCursor: true });
     play.setScale(120 / play.frame.realHeight);
     this.tweens.add({ targets: play, scale: play.scale * 1.08, duration: 700, yoyo: true, repeat: -1 });
 

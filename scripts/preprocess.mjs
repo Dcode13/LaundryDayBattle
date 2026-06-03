@@ -17,6 +17,7 @@ import { PNG } from 'pngjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { floodRemoveBackground } from './lib/imagekit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -28,6 +29,8 @@ const GEN_DIR = path.join(ROOT, 'src', 'generated');
 const COPY_ASIS = new Set(['D1.png', 'D3.png', 'D4.png']);
 // Chroma-key but keep full resolution (seamless horizontal tiling needs the size).
 const KEY_NO_DOWNSCALE = new Set(['D2.png']);
+// Logo art sits on a solid WHITE background (not magenta): flood-fill it away.
+const FLOOD_WHITE = new Set(['F1.png']);
 
 const TARGET_MAX_DIM = 384; // everything else is downscaled to roughly this.
 
@@ -126,6 +129,8 @@ function main() {
       factor = Math.max(1, Math.round(maxDim / TARGET_MAX_DIM));
     }
     png = downscale(png, factor);
+
+    if (FLOOD_WHITE.has(outName)) floodRemoveBackground(png);
 
     fs.writeFileSync(outPath, PNG.sync.write(png));
     sizes[outName] = { w: png.width, h: png.height };
