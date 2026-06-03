@@ -1,4 +1,4 @@
-import type { ControlMap } from '../types';
+import type { ControlMap } from "../types";
 
 // ---- Gameplay tuning (all magic numbers live here) ----
 export const CFG = {
@@ -64,15 +64,22 @@ export const LAYOUT = {
 } as const;
 
 export const CONTROLS: Record<1 | 2, ControlMap> = {
-  1: { up: 'W', down: 'S', left: 'A', right: 'D', interact: 'SPACE', action: 'F' },
+  1: {
+    up: "W",
+    down: "S",
+    left: "A",
+    right: "D",
+    interact: "SPACE",
+    action: "F",
+  },
   2: {
-    up: 'UP',
-    down: 'DOWN',
-    left: 'LEFT',
-    right: 'RIGHT',
-    interact: 'ENTER',
-    action: 'PERIOD',
-    actionAlt: 'SHIFT', // Right Shift
+    up: "UP",
+    down: "DOWN",
+    left: "LEFT",
+    right: "RIGHT",
+    interact: "ENTER",
+    action: "PERIOD",
+    actionAlt: "SHIFT", // Right Shift
   },
 };
 
