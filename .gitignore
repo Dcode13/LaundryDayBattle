@@ -4,8 +4,9 @@ dist/
 .DS_Store
 .vite/
 
-# Generated processed assets (run `npm run preprocess` to regenerate)
-public/assets/
+# NOTE: public/assets/ holds the processed art and IS committed, because the
+# high-res source in /Assets is no longer present to regenerate it (and the
+# Vercel build does not run `npm run preprocess`). Do not ignore it.
 
 # Logs & test artifacts
 *.log
