@@ -60,7 +60,7 @@ Watch out: **wind** knocks hung clothes to the ground, **rain** re-wets everythi
 
 ```
 Assets/                  source art (committed; magenta chroma-key, hi-res)
-public/assets/           processed art (generated, git-ignored)
+public/assets/           processed art (generated, committed so Vercel deploys work)
 scripts/
   preprocess.mjs         chroma-key + downscale pipeline
   e2e.mjs, e2e2.mjs      headless puppeteer smoke / pipeline tests
